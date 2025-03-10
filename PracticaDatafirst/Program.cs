@@ -1,7 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using PracticaDatafirst.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<Practica04032025DataFirstContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Conn"));
+});
+
+
 
 var app = builder.Build();
 
